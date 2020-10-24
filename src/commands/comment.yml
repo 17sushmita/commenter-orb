@@ -7,7 +7,7 @@ parameters:
   repo:
     type: string
     description: "repo name"
-  type:
+  comment_type:
     type: string
     description: "Type of Comment : 'pr', 'issue', 'pr-review'"
   number:
@@ -25,7 +25,7 @@ steps:
       environment:
         GITHUB_OWNER: <<parameters.owner>>
         GITHUB_REPO: <<parameters.repo>>
-        GITHUB_COMMENT_TYPE: <<parameters.type>>
+        GITHUB_COMMENT_TYPE: <<parameters.comment_type>>
         GITHUB_PR_ISSUE_NUMBER: <<parameters.number>>
         GITHUB_COMMENT_FORMAT: <<parameters.format>>
         GITHUB_COMMENT: <<parameters.comment>>
