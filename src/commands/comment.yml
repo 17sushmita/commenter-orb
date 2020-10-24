@@ -15,7 +15,7 @@ parameters:
     description: "Pull Request Number or Issue No."
   format:
     type: string
-    decription: "Format of comment"
+    description: "Format of comment"
   comment:
     type: string
     description: "Comment to post"
