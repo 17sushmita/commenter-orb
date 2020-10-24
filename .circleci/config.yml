@@ -3,7 +3,7 @@ version: 2.1
 orbs:
   commenter-orb: sushmita/commenter-orb@<<pipeline.parameters.dev-orb-version>>
   orb-tools: circleci/orb-tools@10.0
-  
+
 # Pipeline Parameters
 ## These parameters are used internally by orb-tools. Skip to the Jobs section.
 parameters:
@@ -29,7 +29,7 @@ jobs:
       - commenter-orb/comment:
           owner: "17sushmita"
           repo: "hello-world"
-          comment_type:  "pr"
+          comment_type: "pr"
           number: 1
           format: "testing<br/>{{.}}"
           comment: "testing"
@@ -50,17 +50,13 @@ workflows:
       # Publish development version(s) of the orb.
       - orb-tools/publish-dev:
           orb-name: sushmita/commenter-orb
-          context: 
-            - orb-publishing
-            - github-token
+          context: orb-publishing
           requires: [hold-for-dev-publish]
       # Trigger an integration workflow to test the
       # dev:${CIRCLE_SHA1:0:7} version of your orb
       - orb-tools/trigger-integration-tests-workflow:
           name: trigger-integration-dev
-          context: 
-            - orb-publishing
-            - github-token
+          context: orb-publishing
           requires:
             - orb-tools/publish-dev
 
@@ -81,9 +77,7 @@ workflows:
       # e.g. [semver:patch] will cause a patch version to be published.
       - orb-tools/dev-promote-prod-from-commit-subject:
           orb-name: sushmita/commenter-orb
-          context: 
-            - orb-publishing
-            - github-token
+          context: orb-publishing
           add-pr-comment: false
           fail-if-semver-not-indicated: true
           publish-version-tag: false
