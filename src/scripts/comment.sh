@@ -1,1 +1,1 @@
-./src/scripts/github-commenter
+./github-commenter
