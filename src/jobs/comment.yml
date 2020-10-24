@@ -8,7 +8,7 @@ parameters:
     type: string
     description: "username or organization name"
   repo:
-    type: string:
+    type: string
     description: "repo name"
   type:
     type: string
