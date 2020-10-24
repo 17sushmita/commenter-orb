@@ -4,9 +4,6 @@ description: >
 executor: default
 
 parameters:
-  token:
-    type: string
-    description: "github token of commenter"
   owner:
     type: string
     description: "username or organization name"
@@ -27,7 +24,6 @@ parameters:
     description: "Comment to post"
 steps:
   - comment:
-      token: <<parameters.token>>
       owner: <<parameters.owner>>
       repo: <<parameters.repo>>
       type: <<parameters.type>>

@@ -9,7 +9,6 @@ usage:
     use-my-orb:
       jobs:
         - commenter-orb/comment:
-            token: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
             owner: "17sushmita"
             repo: "commenter-orb"
             type: "pr"

@@ -1,9 +1,6 @@
 description: >
   This command comments message on github.
 parameters:
-  token:
-    type: string
-    description: "github token of commenter"
   owner:
     type: string
     description: "username or organization name"
@@ -26,7 +23,6 @@ steps:
   - run: sudo apt install golang-go
   - run:
       environment:
-        GITHUB_TOKEN: <<parameters.token>>
         GITHUB_OWNER: <<parameters.owner>>
         GITHUB_REPO: <<parameters.repo>>
         GITHUB_COMMENT_TYPE: <<parameters.type>>
