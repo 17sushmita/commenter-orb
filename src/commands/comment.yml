@@ -1,0 +1,38 @@
+description: >
+  This command comments message on github.
+parameters:
+  token:
+    type: string
+    description: "github token of commenter"
+  owner:
+    type: string
+    description: "username or organization name"
+  repo:
+    type: string:
+    description: "repo name"
+  type:
+    type: string
+    description: "Type of Comment : 'pr', 'issue', 'pr-review'"
+  number:
+    type: integer
+    description: "Pull Request Number or Issue No."
+  format:
+    type: string
+    decription: "Format of comment"
+  comment:
+    type: string
+    description: "Comment to post"
+steps:
+  - run: sudo apt install golang-go
+  - run:
+      environment:
+        GITHUB_TOKEN: <<parameters.token>>
+        GITHUB_OWNER: <<parameters.owner>>
+        GITHUB_REPO: <<parameters.repo>>
+        GITHUB_COMMENT_TYPE: <<parameters.type>>
+        GITHUB_PR_ISSUE_NUMBER: <<parameters.number>>
+        GITHUB_COMMENT_FORMAT: <<parameters.format>>
+        GITHUB_COMMENT: <<parameters.comment>>
+      name: Post Comment
+      command: <<include(scripts/comment.sh)>>
+
