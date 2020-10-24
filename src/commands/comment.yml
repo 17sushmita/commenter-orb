@@ -20,7 +20,6 @@ parameters:
     type: string
     description: "Comment to post"
 steps:
-  - run: sudo apt install golang-go
   - run:
       environment:
         GITHUB_OWNER: <<parameters.owner>>
