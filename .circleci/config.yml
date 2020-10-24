@@ -29,7 +29,7 @@ jobs:
       - commenter-orb/comment:
           owner: "17sushmita"
           repo: "hello-world"
-          type:  "pr"
+          comment_type:  "pr"
           number: 1
           format: "testing<br/>{{.}}"
           comment: "testing"
