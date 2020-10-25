@@ -1,0 +1,32 @@
+description: >
+  This job posts comment on PR or Issue using github token
+
+executor: default
+
+parameters:
+  owner:
+    type: string
+    description: "username or organization name"
+  repo:
+    type: string
+    description: "repo name"
+  comment_type:
+    type: string
+    description: "Type of Comment : 'pr', 'issue', 'pr-review'"
+  number:
+    type: integer
+    description: "Pull Request Number or Issue No."
+  format:
+    type: string
+    description: "Format of comment"
+  comment:
+    type: string
+    description: "Comment to post"
+steps:
+  - comment:
+      owner: <<parameters.owner>>
+      repo: <<parameters.repo>>
+      comment_type: <<parameters.comment_type>>
+      number: <<parameters.number>>
+      format: <<parameters.format>>
+      comment: <<parameters.comment>>

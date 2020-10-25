@@ -1,0 +1,32 @@
+description: >
+  This command comments message on github.
+parameters:
+  owner:
+    type: string
+    description: "username or organization name"
+  repo:
+    type: string
+    description: "repo name"
+  comment_type:
+    type: string
+    description: "Type of Comment : 'pr', 'issue', 'pr-review'"
+  number:
+    type: integer
+    description: "Pull Request Number or Issue No."
+  format:
+    type: string
+    description: "Format of comment"
+  comment:
+    type: string
+    description: "Comment to post"
+steps:
+  - run:
+      environment:
+        GITHUB_OWNER: <<parameters.owner>>
+        GITHUB_REPO: <<parameters.repo>>
+        GITHUB_COMMENT_TYPE: <<parameters.comment_type>>
+        GITHUB_PR_ISSUE_NUMBER: <<parameters.number>>
+        GITHUB_COMMENT_FORMAT: <<parameters.format>>
+        GITHUB_COMMENT: <<parameters.comment>>
+      name: Post Comment
+      command: <<include(scripts/comment.sh)>>
